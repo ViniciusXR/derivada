@@ -1,7 +1,8 @@
 # Cálculo de derivada
 Programa em JavaScript que calcula a derivada de um polinômio
 
-TRABALHO COMPUTACIONAL DE CALCULO I
+#TRABALHO COMPUTACIONAL DE CALCULO I
+
 Escrever funções polinomiais em x, e calcular sua derivada primeira.
 O programa pode ser feito em qualquer linguagem!
 A maneira que a função será escrita deve ser explicada na tela ao usuário, após o término de sua digitação a função deve aparecer em uma tela limpa respeitando as seguintes condições:
@@ -15,6 +16,7 @@ Logo abaixo a pergunta: Deseja calcular equacao da reta tangente ao gráfico de 
 P(a, f(a)) ? Se sim “qual o valor de a? Em seguida deve ser impresso na tela
 A equação da reta tangente ao gráfico de f no ponto P(....,....) é
 ................................
+
 EXEMPLO
 
 f(x) = x³ - 2x² – 1
