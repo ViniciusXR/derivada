@@ -3,18 +3,21 @@ Programa em JavaScript que calcula a derivada de um polinômio
 
 #TRABALHO COMPUTACIONAL DE CALCULO I
 
-Escrever funções polinomiais em x, e calcular sua derivada primeira.
-O programa pode ser feito em qualquer linguagem!
-A maneira que a função será escrita deve ser explicada na tela ao usuário, após o término de sua digitação a função deve aparecer em uma tela limpa respeitando as seguintes condições:
-. deve aparecer, f(x) =.... ;
-. expoente 1, coeficiente 1 e expoente zero não devem aparecer na tela;
-. cuidado com a constante;
-. logo abaixo deve aparecer f’(x) respeitando as mesmas condições acima.
-Abaixo da derivada deve aparecer a pergunta: Deseja calcular valor funcional? Se sim
-“qual o valor de a? Em seguida deve ser impresso na tela f(a), f’(a) e o ponto P(a, f(a))
-Logo abaixo a pergunta: Deseja calcular equacao da reta tangente ao gráfico de f no ponto
-P(a, f(a)) ? Se sim “qual o valor de a? Em seguida deve ser impresso na tela
-A equação da reta tangente ao gráfico de f no ponto P(....,....) é
+<p>Escrever funções polinomiais em x, e calcular sua derivada primeira.</p>
+<p>O programa pode ser feito em qualquer linguagem!</p>
+<p>A maneira que a função será escrita deve ser explicada na tela ao usuário, após o término de sua digitação a função deve aparecer em uma tela limpa respeitando as seguintes condições:</p>
+<p>Deve aparecer, f(x) =.... ;</p>
+
+<p>Expoente 1, coeficiente 1 e expoente zero não devem aparecer na tela;</p>
+
+<p>Cuidado com a constante;</p>
+
+<p>logo abaixo deve aparecer f’(x) respeitando as mesmas condições acima.</p>
+
+Abaixo da derivada deve aparecer a pergunta: Deseja calcular valor funcional? Se sim “qual o valor de a? Em seguida deve ser impresso na tela f(a), f’(a) e o ponto P(a, f(a))
+Logo abaixo a pergunta: Deseja calcular equacao da reta tangente ao gráfico de f no ponto P(a, f(a)) ? 
+
+Se sim “qual o valor de a? Em seguida deve ser impresso na tela A equação da reta tangente ao gráfico de f no ponto P(....,....) é
 ................................
 
 EXEMPLO
