@@ -10,20 +10,44 @@
 
 <body>
     <header>
-
+        <h1>Derivadas polinomiais</h1>
     </header>
+
     <main>
-        <h1>Programa para calcular a derivada</h1>
-        <label for="texto">Digite a derivada que deseja calcular: F(x)</label>
-        <input type="text" id="texto">
-        <button id="calcular">Calcular a Derivada</button><br>
+        <section>
+            <h3>Digite o polinômio:</h3>
 
-        <h2>Resultado da derivada F'(x) = <span id="resultado"></span></h2>
+            <label for="texto">F(x) =</label>
+            <input type="text" id="entradaPolinomio">
+            <button id="calcularDerivada">Calcular</button><br>
+        </section>
+
+        <section>
+            <h3>Derivada: </h3>
+
+            <label for="resultado">F'(x) =</label>
+            <input type="text" id="resultadoDerivada" disabled>
+            <button id="btnLiberarFuncional">Calcular valor funcional</button>
+        </section>
+
+        <section id="sectionValorFuncional" style="display: none;">
+            <h3>Valor Funcional: </h3>
+
+            <label for="resultado">Valor de x =</label>
+            <input type="text" id="entradaX">
+            <button id="valorFuncinal">Calcular</button>
+        </section>
+
+        <section id="resultadoValorFuncional" style="">
+            <h4>Resultado: </h4>
+
+            <label for="resultado"></label>
+            <input type="text" id="entradaX">
+            <button id="valorFuncinal">Calcular</button>
+        </section>
     </main>
-    <footer>
-
-    </footer>
+    <footer></footer>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 
 </html>

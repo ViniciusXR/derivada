@@ -1,12 +1,35 @@
-document.getElementById('calcular').addEventListener('click', function () {
-    // Captura o valor do input
-    var textoDeEntrada = document.getElementById('texto').value;
+var teste = '';
+const consultarSeletor = (variante) => document.querySelector(variante)
 
+const entradaPolinomio = consultarSeletor('#entradaPolinomio')
+const calcularDerivada = consultarSeletor('#calcularDerivada')
+const resultadoDerivada = consultarSeletor('#resultadoDerivada')
+const btnLiberarFuncional = consultarSeletor('#btnLiberarFuncional')
+const sectionValorFuncional = consultarSeletor('#sectionValorFuncional')
+const entradaX = consultarSeletor('#entradaX')
+const valorFuncinal = consultarSeletor('#valorFuncinal')
 
+calcularDerivada.addEventListener('click', () => {
+    if (entradaPolinomio.value) {
+        resultadoDerivada.value = derivarPolinomio(entradaPolinomio.value)
+    }
+})
 
-    // Exibe o valor capturado em um parágrafo
-    document.getElementById('resultado').innerText = derivarPolinomio(textoDeEntrada);
-});
+btnLiberarFuncional.addEventListener('click', () => {
+    if (resultadoDerivada.value) sectionValorFuncional.style.display = 'block'
+})
+
+valorFuncinal.addEventListener('click', () => calcularFuncional(teste))
+
+function calcularFuncional(polinomio) {
+    console.log(polinomio)
+    let teste = polinomio[0]
+    console.log({ teste })
+    console.log(teste.split(''))
+    console.log(teste.split('')[0])
+    console.log(Number(teste.split('')[0]) * entradaX.value)
+}
+
 
 function derivarPolinomio(polinomio) {
     // Remove espaços desnecessários e divide o polinômio em termos
@@ -17,7 +40,7 @@ function derivarPolinomio(polinomio) {
         const match = term.match(/([+-]?\d*\.?\d*)?x(?:\^([+-]?\d+))?/);
         if (!match) {
             return ''; // Retorna string vazia se o termo não for válido
-        }  
+        }
 
         let coeficiente = match[1] || '1';
         let expoente = match[2] || '1';
@@ -46,7 +69,10 @@ function derivarPolinomio(polinomio) {
 
     // Deriva todos os termos e filtra termos não válidos (constantes)
     const derivedTerms = terms.map(derivarTermo).filter(term => term !== '');
+    console.log(derivedTerms)
+    teste = derivedTerms;
 
     // Une os termos derivados em uma string e retorna
     return derivedTerms.join(' + ').replace(/\+\s*-\s*/g, '- ');
 }
+
