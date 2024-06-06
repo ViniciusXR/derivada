@@ -60,8 +60,8 @@ function derivarPolinomio(polinomio) {
     const termosDerivados = termos.map(derivarTermo).filter(termo => termo !== '')
 
     // Une os termos derivados em uma string e retorna
-    return derivadaRecuperada = termosDerivados.join(' + ').replace(/\+\s*-\s*/g, '- ')
-    // return derivadaRecuperada != '' ? derivadaRecuperada : 0
+    derivadaRecuperada = termosDerivados.join(' + ').replace(/\+\s*-\s*/g, '- ')
+    return derivadaRecuperada != '' ? derivadaRecuperada : 0
 }
 
 function calcularFuncional(derivada, valorX) {
@@ -74,14 +74,6 @@ entradaPolinomio.addEventListener('input', () => {
     btnCalcularDerivada.disabled = entradaPolinomio.value.length === 0
 })
 
-btnCalcularDerivada.addEventListener('click', () => {
-    // Escutador de eventos que quando disparado executa a função de derivar o polinomio
-    if (entradaPolinomio.value.trim()) {
-        resultadoDerivada.value = derivarPolinomio(entradaPolinomio.value)
-        btnContainer.style.display = 'flex'
-    }
-})
-
 btnLiberarFuncional.addEventListener('click', () => {
     // Escutador de eventos que quando disparado muda estilização para liberar a visuzalização da parte de valor funcional em tela
     divValorFuncional.style.display = 'flex'
@@ -90,6 +82,14 @@ btnLiberarFuncional.addEventListener('click', () => {
 btnLiberarRetaTangente.addEventListener('click', () => {
     // Escutador de eventos que quando disparado muda estilização para liberar a visuzalização da parte da reta tangente em tela
     divRetaTangente.style.display = 'flex'
+})
+
+btnCalcularDerivada.addEventListener('click', () => {
+    // Escutador de eventos que quando disparado executa a função de derivar o polinomio
+    if (entradaPolinomio.value.trim()) {
+        resultadoDerivada.value = derivarPolinomio(entradaPolinomio.value)
+        btnContainer.style.display = 'flex'
+    }
 })
 
 btnCalcularFuncional.addEventListener('click', () => {
