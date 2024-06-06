@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mulish";
+}
+
+body {
+  background-color: #00bffe;
+}
+
+body header,
+body main {
+  background-color: #ffffff;
+}
+
+body header,
+body main,
+div.container {
+  display: flex;
+}
+
+body header {
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.234);
+}
+
+body header img#logo {
+  width: 72px;
+  height: 72px;
+}
+
+body main {
+  width: 64%;
+  margin: 52px auto 52px;
+  padding: 40px;
+  font-weight: normal;
+  border-radius: 4.8px;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.234);
+  flex-flow: column;
+}
+
+body main div#btnContainer,
+body main div#valorFuncional,
+body main div#retaTangente {
+  display: none;
+}
+
+div.container {
+  justify-content: center;
+  gap: 20px;
+}
+
+body main section {
+  padding: 10px;
+  line-height: 36px;
+}
+
+body main .padraoEntrada {
+  font-style: italic;
+}
+
+body main input {
+  width: 250px;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4.8px;
+}
+
+body main div#btnContainer {
+  width: 50%;
+  padding: 10px;
+  gap: 8px;
+  margin: 16px auto;
+}
+
+body main button[type="button"] {
+  background-color: #00bffe;
+  border: none;
+  padding: 8px;
+  border-radius: 4.8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+body main button[type="button"]:hover {
+  opacity: 0.7;
+}
+
+body main button[type="button"]#btnResetar {
+  margin-top: 20px;
+  align-self: end;
+}
+
+#resultadoDerivada,
+#resultadoFuncional,
+#resultadoTangente {
+  color: red;
+  font-weight: bold;
+}
