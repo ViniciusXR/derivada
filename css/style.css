@@ -17,6 +17,7 @@ body main {
 }
 
 body header,
+body main,
 div.container {
   display: flex;
 }
@@ -35,12 +36,18 @@ body header img#logo {
 
 body main {
   width: 64%;
-  margin: 0 auto;
+  margin: 52px auto 52px;
   padding: 40px;
-  margin-top: 80px;
   font-weight: normal;
   border-radius: 4.8px;
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.234);
+  flex-flow: column;
+}
+
+body main div#btnContainer,
+body main div#valorFuncional,
+body main div#retaTangente {
+  display: none;
 }
 
 div.container {
@@ -51,11 +58,6 @@ div.container {
 body main section {
   padding: 10px;
   line-height: 36px;
-}
-
-body main section#entradaValorFuncional,
-body main section#resultadoValorFuncional {
-  display: none;
 }
 
 body main .padraoEntrada {
@@ -88,7 +90,13 @@ body main button[type="button"]:hover {
   opacity: 0.7;
 }
 
+body main button[type="button"]#btnResetar {
+  margin-top: 20px;
+  align-self: end;
+}
+
 #resultadoDerivada,
-#resultadoFuncional {
+#resultadoFuncional,
+#resultadoTangente {
   color: red;
 }

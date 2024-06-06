@@ -21,15 +21,15 @@
             <section>
                 <h3>Digite o polinômio:</h3>
 
-                <label for="texto" class="padraoEntrada">F(x) =</label>
+                <label for="entradaPolinomio" class="padraoEntrada">F(x) =</label>
                 <input type="text" id="entradaPolinomio">
-                <button type="button" id="btnCalcularDerivada">Calcular</button><br>
+                <button type="button" id="btnCalcularDerivada" disabled>Calcular</button><br>
             </section>
 
             <section>
                 <h3>Derivada: </h3>
 
-                <label for="resultado" class="padraoEntrada">F'(x) =</label>
+                <label for="resultadoDerivada" class="padraoEntrada">F'(x) =</label>
                 <input type="text" id="resultadoDerivada" disabled>
             </section>
 
@@ -40,20 +40,37 @@
             <button type="button" id="btnLiberarRetaTangente">Calcular equação da reta tangente</button>
         </div>
 
-        <div class="container">
-            <section id="entradaValorFuncional">
-                <h3>Valor Funcional: </h3>
+        <div class="container" id="valorFuncional">
+            <section>
+                <h4>Valor Funcional: </h4>
 
-                <label for="resultado">Valor de x =</label>
+                <label for="entradaX">Valor de x =</label>
                 <input type="text" id="entradaX">
                 <button type="button" id="btnCalcularFuncional">Calcular</button>
             </section>
 
-            <section id="resultadoValorFuncional">
+            <section>
                 <h4>Resultado: </h4>
                 <input type="text" id="resultadoFuncional" disabled>
             </section>
         </div>
+
+        <div class="container" id="retaTangente">
+            <section>
+                <h4>Equação da reta tangente ao gráfico: </h4>
+
+                <label for="entradaA">Valor de a =</label>
+                <input type="text" id="entradaA">
+                <button type="button" id="btnRetaTangente">Calcular</button>
+            </section>
+
+            <section>
+                <h4>Equação no ponto P(...., ....): </h4>
+                <input type="text" id="resultadoTangente" disabled>
+            </section>
+        </div>
+
+        <button type="button" id="btnResetar">Resetar</button>
     </main>
     <script src="./js/script.js"></script>
 </body>
