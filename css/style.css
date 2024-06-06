@@ -99,4 +99,5 @@ body main button[type="button"]#btnResetar {
 #resultadoFuncional,
 #resultadoTangente {
   color: red;
+  font-weight: bold;
 }
