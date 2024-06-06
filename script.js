@@ -1,43 +1,24 @@
-var teste = '';
 const consultarSeletor = (variante) => document.querySelector(variante)
 
 const entradaPolinomio = consultarSeletor('#entradaPolinomio')
-const calcularDerivada = consultarSeletor('#calcularDerivada')
+const btnCalcularDerivada = consultarSeletor('#btnCalcularDerivada')
 const resultadoDerivada = consultarSeletor('#resultadoDerivada')
 const btnLiberarFuncional = consultarSeletor('#btnLiberarFuncional')
-const sectionValorFuncional = consultarSeletor('#sectionValorFuncional')
-const entradaX = consultarSeletor('#entradaX')
-const valorFuncinal = consultarSeletor('#valorFuncinal')
+const entradaValorFuncional = consultarSeletor('#entradaValorFuncional')
+const resultadoValorFuncional = consultarSeletor('#resultadoValorFuncional')
+const btnCalcularFuncional = consultarSeletor('#btnCalcularFuncional')
+const resultadoFuncional = consultarSeletor('#resultadoFuncional')
+const x = consultarSeletor('#entradaX')
 
-calcularDerivada.addEventListener('click', () => {
-    if (entradaPolinomio.value) {
-        resultadoDerivada.value = derivarPolinomio(entradaPolinomio.value)
-    }
-})
-
-btnLiberarFuncional.addEventListener('click', () => {
-    if (resultadoDerivada.value) sectionValorFuncional.style.display = 'block'
-})
-
-valorFuncinal.addEventListener('click', () => calcularFuncional(teste))
-
-function calcularFuncional(polinomio) {
-    console.log(polinomio)
-    let teste = polinomio[0]
-    console.log({ teste })
-    console.log(teste.split(''))
-    console.log(teste.split('')[0])
-    console.log(Number(teste.split('')[0]) * entradaX.value)
-}
-
+var derivadaRecuperada = '';
 
 function derivarPolinomio(polinomio) {
     // Remove espaços desnecessários e divide o polinômio em termos
-    const terms = polinomio.replace(/\s+/g, '').match(/([+-]?[^-+]+)/g);
+    const termos = polinomio.replace(/\s+/g, '').match(/([+-]?[^-+]+)/g);
 
     // Função para derivar um termo
-    function derivarTermo(term) {
-        const match = term.match(/([+-]?\d*\.?\d*)?x(?:\^([+-]?\d+))?/);
+    function derivarTermo(termo) {
+        const match = termo.match(/([+-]?\d*\.?\d*)?x(?:\^([+-]?\d+))?/);
         if (!match) {
             return ''; // Retorna string vazia se o termo não for válido
         }
@@ -68,11 +49,35 @@ function derivarPolinomio(polinomio) {
     }
 
     // Deriva todos os termos e filtra termos não válidos (constantes)
-    const derivedTerms = terms.map(derivarTermo).filter(term => term !== '');
-    console.log(derivedTerms)
-    teste = derivedTerms;
+    const termosDerivados = termos.map(derivarTermo).filter(termo => termo !== '');
 
     // Une os termos derivados em uma string e retorna
-    return derivedTerms.join(' + ').replace(/\+\s*-\s*/g, '- ');
+    return derivadaRecuperada = termosDerivados.join(' + ').replace(/\+\s*-\s*/g, '- ');
+    // return derivadaRecuperada != '' ? derivadaRecuperada : 0
 }
+
+function calcularFuncional(derivada, valorX) {
+    // Calcula valor funcional utilizando a derivada que foi recuperada e o valor de entrada para x formatado para o padrão númerico
+    return (math.evaluate(derivada, { x: valorX })).toLocaleString('pt-BR');
+}
+
+btnCalcularDerivada.addEventListener('click', () => {
+    if (entradaPolinomio.value) {
+        resultadoDerivada.value = derivarPolinomio(entradaPolinomio.value)
+    }
+})
+
+btnLiberarFuncional.addEventListener('click', () => {
+    // Escutador de eventos que quando disparado muda estilização para liberar a visuzalização da parte de valor funcional em tela
+    if (resultadoDerivada.value) {
+        entradaValorFuncional.style.display = 'block'
+        resultadoValorFuncional.style.display = 'block';
+    }
+})
+
+btnCalcularFuncional.addEventListener('click', () => {
+    // Escutador de eventos que quando disparado executa função para calcular o valor funcional da derivada
+    resultadoFuncional.value = calcularFuncional(derivadaRecuperada, parseInt(x.value))
+})
+
 

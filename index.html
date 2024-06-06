@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programa para calcular a derivada</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    <title>Programa para calcular a derivada</title>
 </head>
 
 <body>
@@ -19,7 +20,7 @@
 
             <label for="texto">F(x) =</label>
             <input type="text" id="entradaPolinomio">
-            <button id="calcularDerivada">Calcular</button><br>
+            <button id="btnCalcularDerivada">Calcular</button><br>
         </section>
 
         <section>
@@ -34,23 +35,18 @@
             <button id="">Calcular equação da reta tangente ao gráfico</button>
         </div>
 
-
-
         <div>
-            <section id="sectionValorFuncional" style="display: none;">
+            <section id="entradaValorFuncional">
                 <h3>Valor Funcional: </h3>
 
                 <label for="resultado">Valor de x =</label>
                 <input type="text" id="entradaX">
-                <button id="valorFuncinal">Calcular</button>
+                <button id="btnCalcularFuncional">Calcular</button>
             </section>
 
-            <section id="resultadoValorFuncional" style="">
+            <section id="resultadoValorFuncional">
                 <h4>Resultado: </h4>
-
-                <label for="resultado"></label>
-                <input type="text" id="entradaX">
-                <button id="valorFuncinal">Calcular</button>
+                <input type="text" id="resultadoFuncional" disabled>
             </section>
         </div>
     </main>

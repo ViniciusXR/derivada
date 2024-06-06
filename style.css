@@ -19,7 +19,6 @@ body main {
 
 body header {
   padding: 20px;
-  background-color: #ffffff;
 }
 
 body main {
@@ -34,12 +33,19 @@ body main section {
   padding: 10px;
 }
 
+body main section#entradaValorFuncional,
+body main section#resultadoValorFuncional {
+  display: none;
+}
+
 body main div#btnContainer {
   width: 50%;
   background-color: blue;
   padding: 10px;
   margin: 25px auto;
 }
-#resultadoDerivada {
+
+#resultadoDerivada,
+#resultadoFuncional {
   color: red;
 }
