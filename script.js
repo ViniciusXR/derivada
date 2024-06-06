@@ -1,5 +1,7 @@
+// Função utilizada para consultar seletor
 const consultarSeletor = (variante) => document.querySelector(variante)
 
+// Seletores
 const entradaPolinomio = consultarSeletor('#entradaPolinomio')
 const btnCalcularDerivada = consultarSeletor('#btnCalcularDerivada')
 const resultadoDerivada = consultarSeletor('#resultadoDerivada')
@@ -62,6 +64,7 @@ function calcularFuncional(derivada, valorX) {
 }
 
 btnCalcularDerivada.addEventListener('click', () => {
+    // Escutador de eventos que quando disparado executa a função de derivar o polinomio
     if (entradaPolinomio.value) {
         resultadoDerivada.value = derivarPolinomio(entradaPolinomio.value)
     }
