@@ -88,7 +88,7 @@ btnCalcularDerivada.addEventListener('click', () => {
     // Escutador de eventos que quando disparado executa a função de derivar o polinomio
     if (entradaPolinomio.value.trim()) {
         resultadoDerivada.value = derivarPolinomio(entradaPolinomio.value)
-        btnContainer.style.display = 'flex'
+        if (resultadoDerivada.value != 0) btnContainer.style.display = 'flex'
     }
 })
 
