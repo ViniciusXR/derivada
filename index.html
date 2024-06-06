@@ -4,44 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
-    <title>Programa para calcular a derivada</title>
+    <title>Derivadas Polinomiais</title>
 </head>
 
 <body>
     <header>
-        <h1>Derivadas polinomiais</h1>
+        <h1>Derivadas Polinomiais</h1>
+        <img src="./img/logo.png" alt="logo" id="logo">
     </header>
 
     <main>
-        <section>
-            <h3>Digite o polinômio:</h3>
+        <div class="container">
+            <section>
+                <h3>Digite o polinômio:</h3>
 
-            <label for="texto">F(x) =</label>
-            <input type="text" id="entradaPolinomio">
-            <button id="btnCalcularDerivada">Calcular</button><br>
-        </section>
+                <label for="texto" class="padraoEntrada">F(x) =</label>
+                <input type="text" id="entradaPolinomio">
+                <button type="button" id="btnCalcularDerivada">Calcular</button><br>
+            </section>
 
-        <section>
-            <h3>Derivada: </h3>
+            <section>
+                <h3>Derivada: </h3>
 
-            <label for="resultado">F'(x) =</label>
-            <input type="text" id="resultadoDerivada" disabled>
-        </section>
+                <label for="resultado" class="padraoEntrada">F'(x) =</label>
+                <input type="text" id="resultadoDerivada" disabled>
+            </section>
 
-        <div id="btnContainer">
-            <button id="btnLiberarFuncional">Calcular valor funcional</button>
-            <button id="">Calcular equação da reta tangente ao gráfico</button>
         </div>
 
-        <div>
+        <div id="btnContainer" class="container">
+            <button type="button" id="btnLiberarFuncional">Calcular valor funcional</button>
+            <button type="button" id="btnLiberarRetaTangente">Calcular equação da reta tangente</button>
+        </div>
+
+        <div class="container">
             <section id="entradaValorFuncional">
                 <h3>Valor Funcional: </h3>
 
                 <label for="resultado">Valor de x =</label>
                 <input type="text" id="entradaX">
-                <button id="btnCalcularFuncional">Calcular</button>
+                <button type="button" id="btnCalcularFuncional">Calcular</button>
             </section>
 
             <section id="resultadoValorFuncional">
@@ -50,8 +55,7 @@
             </section>
         </div>
     </main>
-    <footer></footer>
-    <script src="script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

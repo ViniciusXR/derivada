@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Mulish";
+}
+
+body {
+  background-color: #d9d9d9;
+}
+
+body header,
+body main {
+  background-color: #ffffff;
+}
+
+body header,
+div.container {
+  display: flex;
+}
+
+body header {
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.234);
+}
+
+body header img#logo {
+  width: 72px;
+  height: 72px;
+}
+
+body main {
+  width: 64%;
+  margin: 0 auto;
+  padding: 40px;
+  margin-top: 80px;
+  font-weight: normal;
+  border-radius: 4.8px;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.234);
+}
+
+div.container {
+  justify-content: center;
+  gap: 20px;
+}
+
+body main section {
+  padding: 10px;
+  line-height: 36px;
+}
+
+body main section#entradaValorFuncional,
+body main section#resultadoValorFuncional {
+  display: none;
+}
+
+body main .padraoEntrada {
+  font-style: italic;
+}
+
+body main input {
+  width: 250px;
+  padding: 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4.8px;
+}
+
+body main div#btnContainer {
+  width: 50%;
+  padding: 10px;
+  gap: 8px;
+  margin: 16px auto;
+}
+
+body main button[type="button"] {
+  background-color: #00bffe;
+  border: none;
+  padding: 8px;
+  border-radius: 4.8px;
+  cursor: pointer;
+}
+
+body main button[type="button"]:hover {
+  opacity: 0.7;
+}
+
+#resultadoDerivada,
+#resultadoFuncional {
+  color: red;
+}
