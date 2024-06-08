@@ -16,6 +16,9 @@ const x = consultarSeletor('#entradaX')
 
 const divRetaTangente = consultarSeletor('#retaTangente')
 const btnLiberarRetaTangente = consultarSeletor('#btnLiberarRetaTangente')
+const btnRetaTangente = consultarSeletor('#btnRetaTangente')
+const resultadoTangente = consultarSeletor('#resultadoTangente')
+const a = consultarSeletor('#entradaA')
 
 const btnResetar = consultarSeletor('#btnResetar')
 var derivadaRecuperada = ''
@@ -64,10 +67,28 @@ function derivarPolinomio(polinomio) {
     return derivadaRecuperada != '' ? derivadaRecuperada : 0
 }
 
+function calcularFA(polinomio, valorA) {
+    // Calcula valor de F(a)
+    return (math.evaluate(polinomio, { x: valorA })).toLocaleString('pt-BR')
+}
+
 function calcularFuncional(derivada, valorX) {
     // Calcula valor funcional utilizando a derivada que foi recuperada e o valor de entrada para x formatado para o padrão númerico
     return (math.evaluate(derivada, { x: valorX })).toLocaleString('pt-BR')
 }
+
+function calcularFlinhaA(derivada, valorA) {
+    //f linha
+    return (math.evaluate(derivada, { x: valorA })).toLocaleString('pt-BR')
+}
+
+btnRetaTangente.addEventListener('click', () => {
+    let fa = calcularFA(entradaPolinomio.value.trim(), parseInt(a.value))
+    let coeficienteAngular = calcularFlinhaA(derivadaRecuperada, parseInt(a.value))
+    let b = parseInt(fa) - coeficienteAngular * parseInt(a.value)
+
+    resultadoTangente.value = `y = ${coeficienteAngular}x + ${b}`
+})
 
 entradaPolinomio.addEventListener('input', () => {
     // Escutador de eventos que quando disparado habilita o botão para calcular a derivada
