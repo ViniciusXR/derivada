@@ -21,6 +21,8 @@ const resultadoTangente = consultarSeletor('#resultadoTangente')
 const a = consultarSeletor('#entradaA')
 
 const btnResetar = consultarSeletor('#btnResetar')
+const btnCalcularRaizes = consultarSeletor('#btnCalcularRaizes')
+const resultadoRaizes = consultarSeletor('#resultadoRaizes')
 var derivadaRecuperada = ''
 
 function derivarPolinomio(polinomio) {
@@ -82,6 +84,42 @@ function calcularFlinhaA(derivada, valorA) {
     return (math.evaluate(derivada, { x: valorA })).toLocaleString('pt-BR')
 }
 
+function encontrarRaizes(polinomio) {
+    // Definindo os limites de busca
+    const limiteInferior = -10
+    const limiteSuperior = 10
+    const precisao = 1e-8
+    let raizes = []
+
+    // Função para encontrar raízes usando o método de Newton-Raphson
+    function newtonRaphson(f, df, x0, precisao) {
+        let x = x0
+        let iteracoes = 0
+        while (iteracoes < 100) {
+            const fx = f(x)
+            const dfx = df(x)
+            if (Math.abs(fx) < precisao) {
+                return x
+            }
+            x -= fx / dfx
+            iteracoes++
+        }
+        return null
+    }
+
+    // Função f(x) e sua derivada f'(x)
+    const f = (x) => math.evaluate(polinomio, { x: x })
+    const df = (x) => math.evaluate(derivarPolinomio(polinomio), { x: x })
+
+    for (let i = limiteInferior; i <= limiteSuperior; i++) {
+        const raiz = newtonRaphson(f, df, i, precisao)
+        if (raiz !== null && !raizes.some(r => Math.abs(r - raiz) < precisao)) {
+            raizes.push(raiz.toFixed(8))
+        }
+    }
+    return raizes.join(', ')
+}
+
 btnRetaTangente.addEventListener('click', () => {
     let fa = calcularFA(entradaPolinomio.value.trim(), parseInt(a.value))
     let coeficienteAngular = calcularFlinhaA(derivadaRecuperada, parseInt(a.value))
@@ -118,8 +156,12 @@ btnCalcularFuncional.addEventListener('click', () => {
     resultadoFuncional.value = calcularFuncional(derivadaRecuperada, parseInt(x.value))
 })
 
+btnCalcularRaizes.addEventListener('click', () => {
+    // Escutador de eventos que quando disparado executa a função para calcular as raízes do polinômio
+    resultadoRaizes.value = encontrarRaizes(entradaPolinomio.value)
+})
+
 btnResetar.addEventListener('click', () => {
     // Escutador de eventos que quando disparado recarrega a página resetando os campos
     window.location.reload()
 })
-
