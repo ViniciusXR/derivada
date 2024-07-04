@@ -28,6 +28,8 @@ var derivadaRecuperada = ''
 const btnCalcularRaizEnesima = document.getElementById('btnCalcularRaizEnesima');
 const resultadoRaizEnesima = document.getElementById('resultadoRaizEnesima');
 
+const formatToDisplay = (variante) => variante.join(' + ').replace(/\+\s*-\s*/g, '- ')
+
 function derivarPolinomio(polinomio) {
     // Remove espaços desnecessários e divide o polinômio em termos
     const termos = polinomio.replace(/\s+/g, '').match(/([+-]?[^-+]+)/g)
@@ -68,7 +70,7 @@ function derivarPolinomio(polinomio) {
     const termosDerivados = termos.map(derivarTermo).filter(termo => termo !== '')
 
     // Une os termos derivados em uma string e retorna
-    derivadaRecuperada = termosDerivados.join(' + ').replace(/\+\s*-\s*/g, '- ')
+    derivadaRecuperada = formatToDisplay(termosDerivados)
     return derivadaRecuperada != '' ? derivadaRecuperada : 0
 }
 
@@ -144,9 +146,9 @@ function calcularRaizEnesima(n, k) {
 btnRetaTangente.addEventListener('click', () => {
     let fa = calcularFA(entradaPolinomio.value.trim(), parseInt(a.value))
     let coeficienteAngular = calcularFlinhaA(derivadaRecuperada, parseInt(a.value))
-    let b = parseInt(fa) - coeficienteAngular * parseInt(a.value)
+    let b = formatToDisplay([parseInt(fa) - coeficienteAngular * parseInt(a.value)])
 
-    resultadoTangente.value = `y = ${coeficienteAngular}x + ${b}`
+    resultadoTangente.value = `y = ${coeficienteAngular}x ${b < 0 ? b : `+${b}`}`
 })
 
 entradaPolinomio.addEventListener('input', () => {
@@ -190,7 +192,7 @@ btnResetar.addEventListener('click', () => {
 btnCalcularRaizEnesima.addEventListener('click', () => {
     const n = parseFloat(document.getElementById('entradaN').value);
     const k = parseFloat(document.getElementById('entradaK').value);
-    
+
     if (!isNaN(n) && !isNaN(k)) {
         resultadoRaizEnesima.value = calcularRaizEnesima(n, k);
     } else {
