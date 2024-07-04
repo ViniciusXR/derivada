@@ -70,6 +70,7 @@
             </section>
         </div>
 
+
         <div class="container" id="raizesPolinomio">
             <section>
                 <h4>Raízes do Polinômio:</h4>
@@ -77,16 +78,23 @@
             </section>
         </div>
 
-        <div>
-            <label for="entradaN">Valor de n:</label>
-            <input type="number" id="entradaN">
+        <div class="container">
+            <div>
+                <label for="entradaN">Valor de n =</label>
+                <input type="number" id="entradaN">
+            </div>
+
+            <div>
+                <label for="entradaK">Valor de k =</label>
+                <input type="number" id="entradaK">
+            </div>
         </div>
-        <div>
-            <label for="entradaK">Valor de k:</label>
-            <input type="number" id="entradaK">
+
+        <div class="container raizEnesimaWrapper">
+            <button type="button" id="btnCalcularRaizEnesima">Calcular Raiz Enésima</button>
+            <h4>Resultado: </h4>
+            <input type="text" id="resultadoRaizEnesima" disabled>
         </div>
-        <button type="button" id="btnCalcularRaizEnesima">Calcular Raiz Enésima</button>
-        <input type="text" id="resultadoRaizEnesima" readonly>
 
         <button type="button" id="btnResetar">Resetar</button>
     </main>

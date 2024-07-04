@@ -55,6 +55,14 @@ div.container {
   gap: 20px;
 }
 
+div.container > section input#resultadoRaizes {
+  margin-bottom: 20px;
+}
+
+div.raizEnesimaWrapper {
+  margin-top: 32px;
+}
+
 body main section {
   padding: 10px;
   line-height: 36px;
@@ -72,7 +80,7 @@ body main input {
 }
 
 body main div#btnContainer {
-  width: 50%;
+  width: 70%;
   padding: 10px;
   gap: 8px;
   margin: 16px auto;
@@ -103,9 +111,4 @@ body main button[type="button"]#btnResetar {
 #resultadoRaizEnesima {
   color: red;
   font-weight: bold;
-}
-
-#btnCalcularRaizEnesima{
-  display: inline-block;
-  width: 200px;
 }
