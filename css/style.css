@@ -98,7 +98,14 @@ body main button[type="button"]#btnResetar {
 
 #resultadoDerivada,
 #resultadoFuncional,
-#resultadoTangente {
+#resultadoTangente,
+#resultadoRaizes,
+#resultadoRaizEnesima {
   color: red;
   font-weight: bold;
+}
+
+#btnCalcularRaizEnesima{
+  display: inline-block;
+  width: 200px;
 }

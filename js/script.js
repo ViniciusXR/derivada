@@ -25,6 +25,9 @@ const btnCalcularRaizes = consultarSeletor('#btnCalcularRaizes')
 const resultadoRaizes = consultarSeletor('#resultadoRaizes')
 var derivadaRecuperada = ''
 
+const btnCalcularRaizEnesima = document.getElementById('btnCalcularRaizEnesima');
+const resultadoRaizEnesima = document.getElementById('resultadoRaizEnesima');
+
 function derivarPolinomio(polinomio) {
     // Remove espaços desnecessários e divide o polinômio em termos
     const termos = polinomio.replace(/\s+/g, '').match(/([+-]?[^-+]+)/g)
@@ -85,39 +88,57 @@ function calcularFlinhaA(derivada, valorA) {
 }
 
 function encontrarRaizes(polinomio) {
-    // Definindo os limites de busca
-    const limiteInferior = -10
-    const limiteSuperior = 10
-    const precisao = 1e-8
-    let raizes = []
+    const limiteInferior = -10;
+    const limiteSuperior = 10;
+    const precisao = 1e-8;
+    let raizes = [];
 
-    // Função para encontrar raízes usando o método de Newton-Raphson
     function newtonRaphson(f, df, x0, precisao) {
-        let x = x0
-        let iteracoes = 0
-        while (iteracoes < 100) {
-            const fx = f(x)
-            const dfx = df(x)
+        let x = x0;
+        let iteracoes = 0;
+        while (iteracoes < 1000) {
+            const fx = f(x);
+            const dfx = df(x);
             if (Math.abs(fx) < precisao) {
-                return x
+                return x;
             }
-            x -= fx / dfx
-            iteracoes++
+            x -= fx / dfx;
+            iteracoes++;
         }
-        return null
+        return null;
     }
 
-    // Função f(x) e sua derivada f'(x)
-    const f = (x) => math.evaluate(polinomio, { x: x })
-    const df = (x) => math.evaluate(derivarPolinomio(polinomio), { x: x })
+    const f = (x) => math.evaluate(polinomio, { x: x });
+    const df = (x) => math.evaluate(derivarPolinomio(polinomio), { x: x });
 
     for (let i = limiteInferior; i <= limiteSuperior; i++) {
-        const raiz = newtonRaphson(f, df, i, precisao)
+        const raiz = newtonRaphson(f, df, i, precisao);
         if (raiz !== null && !raizes.some(r => Math.abs(r - raiz) < precisao)) {
-            raizes.push(raiz.toFixed(8))
+            raizes.push(raiz.toFixed(8));
         }
     }
-    return raizes.join(', ')
+    return raizes.join(', ');
+}
+
+function calcularRaizEnesima(n, k) {
+    const precisao = 1e-8;
+    let x = 1; // Primeira aproximação
+    let iteracoes = 0;
+
+    while (iteracoes < 1000) {
+        const fx = Math.pow(x, n) - k;
+        const dfx = n * Math.pow(x, n - 1);
+        const novoX = x - fx / dfx;
+
+        if (Math.abs(novoX - x) < precisao) {
+            return novoX.toFixed(8);
+        }
+
+        x = novoX;
+        iteracoes++;
+    }
+
+    return x.toFixed(8);
 }
 
 btnRetaTangente.addEventListener('click', () => {
@@ -165,3 +186,14 @@ btnResetar.addEventListener('click', () => {
     // Escutador de eventos que quando disparado recarrega a página resetando os campos
     window.location.reload()
 })
+
+btnCalcularRaizEnesima.addEventListener('click', () => {
+    const n = parseFloat(document.getElementById('entradaN').value);
+    const k = parseFloat(document.getElementById('entradaK').value);
+    
+    if (!isNaN(n) && !isNaN(k)) {
+        resultadoRaizEnesima.value = calcularRaizEnesima(n, k);
+    } else {
+        alert("Por favor, insira valores válidos para n e k.");
+    }
+});
